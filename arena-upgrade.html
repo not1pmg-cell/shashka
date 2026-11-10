@@ -1,0 +1,142 @@
+<!-- ===== ARENA UPGRADE: index.html ichida </body> dan OLDIN qo'ying ===== -->
+<style>
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}
+:root{--bg:#000;--card:#0e0e12;--line:rgba(255,255,255,.09)}
+body{background:radial-gradient(700px 320px at 50% -120px,rgba(139,92,246,.22),transparent 70%),radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/26px 26px,#000!important}
+.sheet{background:#0a0a0e!important}#table{background:#000!important;background-image:radial-gradient(600px 300px at 50% 0,rgba(139,92,246,.2),transparent 70%)!important}
+.chip,.me,.tab,.opt,.player,.chat,.kv div,.note{background:#0e0e12}
+.tab.on,.opt.on{background:linear-gradient(135deg,#8b5cf6,#22d3ee)}
+.hero{background:#07070b!important;overflow:hidden;animation:fadeUp .6s both}
+.hero::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:conic-gradient(from var(--ang),transparent 60%,#8b5cf6,#22d3ee,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.fl{position:absolute!important;z-index:0!important;font-size:26px;opacity:.12;animation:float 7s ease-in-out infinite;pointer-events:none}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(14deg)}}
+@keyframes spin{to{--ang:360deg}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}}
+@keyframes pop{0%{transform:scale(.3)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+.game{background:#0c0c10!important;animation:fadeUp .5s both;animation-delay:calc(var(--n,0)*70ms)}
+.game::before{opacity:.14!important}
+.game::after{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;background:conic-gradient(from var(--ang),transparent 65%,var(--g));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.3s;animation:spin 3s linear infinite;pointer-events:none}
+.game:hover::after{opacity:1}.game:active{transform:scale(.97)}
+.cta,.opt,.chip,.tab,.back{transition:transform .15s,filter .2s}.cta:active,.opt:active,.chip:active,.back:active{transform:scale(.95)}.cta:hover{filter:brightness(1.12)}
+.dot.on{animation:pulse 1.6s infinite}@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(52,211,153,0)}}
+.player.turn{animation:glow 1.4s ease-in-out infinite}@keyframes glow{50%{box-shadow:0 0 0 6px rgba(52,211,153,.22)}}
+.sq.lm span,.sq.lm .ck{animation:pop .3s}.gc.lm::after{animation:pop .3s}
+.sq.hint::after{animation:pulse2 1s ease-in-out infinite}.rc.hint::after{animation:pulse2 1s ease-in-out infinite}
+@keyframes pulse2{50%{transform:scale(1.35);opacity:.5}}
+.msg.win{animation:pop .5s}
+/* 2D art */
+.sc{perspective:none!important}.a{position:relative;width:100%;height:100%}
+.a-chess span{position:absolute;inset:0;display:grid;place-items:center;font-size:calc(var(--sz)*.8);color:#fff;filter:drop-shadow(0 0 12px #a78bfa);animation:hop 1.6s ease-in-out infinite}
+.a-chess .rg{position:absolute;inset:6%;border:2px solid #8b5cf6;border-radius:50%;animation:ping 1.6s ease-out infinite}
+.a-chess b{position:absolute;left:25%;right:25%;bottom:2%;height:8%;border-radius:50%;background:rgba(0,0,0,.6);animation:shd 1.6s ease-in-out infinite}
+@keyframes hop{0%,100%{transform:translateY(8%) rotate(-6deg)}50%{transform:translateY(-14%) rotate(6deg)}}
+@keyframes shd{50%{transform:scaleX(.6);opacity:.4}}@keyframes ping{from{transform:scale(.6);opacity:.9}to{transform:scale(1.25);opacity:0}}
+.a-chk i{position:absolute;width:38%;height:38%;border-radius:50%;box-shadow:0 3px 8px #0008}
+.a-chk .w{left:46%;top:28%;background:radial-gradient(circle at 35% 30%,#fff,#9ca3af);animation:chW 2.6s infinite}
+.a-chk .r{left:8%;top:62%;background:radial-gradient(circle at 35% 30%,#fca5a5,#dc2626);animation:chR 2.6s infinite}
+@keyframes chR{0%,10%{transform:none}50%{transform:translate(calc(var(--sz)*.4),calc(var(--sz)*-.55)) scale(1.3)}65%,90%{transform:translate(calc(var(--sz)*.8),calc(var(--sz)*-.64))}100%{transform:translate(calc(var(--sz)*.8),calc(var(--sz)*-.64));opacity:0}}
+@keyframes chW{0%,50%{transform:none;opacity:1}62%,90%{transform:scale(0);opacity:0}100%{opacity:0}}
+.a-c4{display:grid;grid-template-columns:repeat(3,1fr);gap:8%;padding:8%;background:#1d4ed8;border-radius:12px}
+.a-c4 u{border-radius:50%;background:#0b1b4a}
+.a-c4 i{position:absolute;width:24%;aspect-ratio:1;left:38%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fecaca,#dc2626 70%);animation:fall 2s infinite}
+@keyframes fall{0%{top:-30%}55%{top:64%}68%{top:56%}80%,92%{top:64%}100%{top:64%;opacity:0}}
+.a-gm{background:linear-gradient(rgba(0,0,0,.4) 1px,transparent 1px) 0 0/25% 25%,linear-gradient(90deg,rgba(0,0,0,.4) 1px,transparent 1px) 0 0/25% 25%,#d9a85a;border-radius:10px}
+.a-gm i{position:absolute;width:17%;aspect-ratio:1;border-radius:50%;left:calc(8% + var(--k)*17%);top:calc(8% + var(--k)*17%);background:radial-gradient(circle at 35% 30%,#777,#000 70%);animation:st 3.2s infinite;animation-delay:calc(var(--k)*.3s);transform:scale(0)}
+.a-gm i:nth-child(even){background:radial-gradient(circle at 35% 30%,#fff,#bbb 80%)}
+@keyframes st{0%{transform:scale(0)}8%{transform:scale(1.25)}14%,80%{transform:scale(1)}92%,100%{transform:scale(0)}}
+.a-rv{background:#059669;border-radius:14px}
+.a-rv i{position:absolute;inset:16%;border-radius:50%;animation:fl 2s ease-in-out infinite;box-shadow:0 4px 10px #0007}
+@keyframes fl{0%{transform:scaleX(1);background:radial-gradient(circle at 35% 30%,#666,#000 75%)}22%{transform:scaleX(0);background:#000}23%{transform:scaleX(0);background:#fff}45%,55%{transform:scaleX(1);background:radial-gradient(circle at 35% 30%,#fff,#bbb 80%)}72%{transform:scaleX(0);background:#fff}73%{transform:scaleX(0);background:#000}100%{transform:scaleX(1);background:radial-gradient(circle at 35% 30%,#666,#000 75%)}}
+.a-dice span{position:absolute;inset:0;display:grid;place-items:center;font-size:calc(var(--sz)*.95);color:#fff;filter:drop-shadow(0 0 10px #fb923c);animation:roll 1.8s ease-in-out infinite}
+@keyframes roll{0%{transform:translateY(0) rotate(0)}30%{transform:translateY(-26%) rotate(200deg)}55%{transform:translateY(0) rotate(360deg)}65%{transform:translateY(-7%) rotate(360deg)}75%,100%{transform:translateY(0) rotate(360deg)}}
+.a-card i{position:absolute;left:29%;bottom:4%;width:42%;height:66%;background:#fff;color:#111;border-radius:8px;display:grid;place-items:center;font:800 calc(var(--sz)*.22)/1 system-ui;font-style:normal;box-shadow:0 4px 12px #0009;transform-origin:50% 120%;animation:fan 3s ease-in-out infinite}
+.a-card i:nth-child(2){color:#dc2626}.a-card i:nth-child(3){color:#dc2626}
+@keyframes fan{0%,10%{transform:rotate(0)}35%,70%{transform:rotate(calc((var(--i) - 1)*26deg))}95%,100%{transform:rotate(0)}}
+.a-dom i{position:absolute;top:18%;width:36%;height:64%;background:#fff;color:#111;border-radius:8px;display:grid;place-items:center;font:normal calc(var(--sz)*.5)/1 system-ui;box-shadow:0 4px 12px #0009;animation:join 2.8s ease-in-out infinite}
+.a-dom i:first-child{left:12%;--d:-90%;--r:-25deg}.a-dom i:last-child{left:52%;--d:90%;--r:25deg}
+@keyframes join{0%{transform:translateX(var(--d)) rotate(var(--r));opacity:0}30%,78%{transform:none;opacity:1}100%{opacity:0}}
+.a-ludo{border-radius:14px;background:conic-gradient(#ef444455 0 25%,#22c55e55 0 50%,#eab30855 0 75%,#3b82f655 0)}
+.a-ludo i{position:absolute;left:12%;top:12%;width:24%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#ef4444 60%);box-shadow:0 4px 8px #0009;animation:lap 3.2s linear infinite}
+@keyframes lap{0%{transform:translate(0,0)}25%{transform:translate(calc(var(--sz)*.52),0)}50%{transform:translate(calc(var(--sz)*.52),calc(var(--sz)*.52))}75%{transform:translate(0,calc(var(--sz)*.52))}100%{transform:translate(0,0)}}
+/* leaderboard */
+.lbtop{display:flex;align-items:flex-end;justify-content:center;gap:10px;height:190px;margin:10px 0 14px}
+.pod{flex:1;max-width:110px;text-align:center;font-size:12px}
+.pod .av{width:46px;height:46px;margin:0 auto 4px;font-size:19px}.pod b{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{margin-top:6px;border-radius:12px 12px 0 0;display:grid;place-items:start center;padding-top:6px;font-size:22px;animation:grow .8s cubic-bezier(.2,.9,.3,1) both;transform-origin:bottom}
+@keyframes grow{from{transform:scaleY(0)}}
+.lr{display:flex;align-items:center;gap:10px;padding:9px 12px;margin-bottom:6px;border-radius:14px;background:#0e0e12;border:1px solid var(--line);animation:fadeUp .4s both;animation-delay:calc(var(--n)*45ms)}
+.lr.mine{border-color:#22d3ee;background:rgba(34,211,238,.08)}.lr .rk{width:26px;font-weight:800;color:var(--mut)}.lr .av{width:34px;height:34px;font-size:14px}.lr b{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lr span{color:var(--mut);font-size:12px}
+.spin{width:30px;height:30px;margin:30px auto;border-radius:50%;border:3px solid var(--line);border-top-color:#22d3ee;animation:rot .8s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
+</style>
+<script>
+window.addEventListener('load',()=>{
+/* --- tillar --- */
+Object.assign(I18.uz,{lb:"Reyting",lbEmpty:"Hozircha ro'yxat bo'sh",lbOff:"Server reytingni qo'llamaydi, faqat sizning natijangiz ko'rsatilmoqda",wr:"yutuq"});
+Object.assign(I18.ru,{lb:"Рейтинг",lbEmpty:"Список пока пуст",lbOff:"Сервер не поддерживает рейтинг, показан только ваш результат",wr:"побед"});
+Object.assign(I18.en,{lb:"Leaderboard",lbEmpty:"The list is empty",lbOff:"Server has no leaderboard yet, showing only your stats",wr:"win rate"});
+
+/* --- 2D animatsiyali rasmlar (3D o'rniga) --- */
+ART.chess=()=>`<div class="a a-chess"><i class="rg"></i><span>♞</span><b></b></div>`;
+ART.checkers=()=>`<div class="a a-chk"><i class="w"></i><i class="r"></i></div>`;
+ART.connect4=()=>`<div class="a a-c4">${'<u></u>'.repeat(9)}<i></i></div>`;
+ART.gomoku=()=>`<div class="a a-gm">${[0,1,2,3,4].map(k=>`<i style="--k:${k}"></i>`).join('')}</div>`;
+ART.reversi=()=>`<div class="a a-rv"><i></i></div>`;
+ART.nard=()=>`<div class="a a-dice"><span>⚄</span></div>`;
+ART.durak=()=>`<div class="a a-card">${['A♠','K♥','Q♦'].map((c,i)=>`<i style="--i:${i}">${c}</i>`).join('')}</div>`;
+ART.domino=()=>`<div class="a a-dom"><i>⚃</i><i>⚅</i></div>`;
+ART.ludo=()=>`<div class="a a-ludo"><i></i></div>`;
+setInterval(()=>document.querySelectorAll('.a-dice span').forEach(s=>s.textContent=String.fromCharCode(9856+Math.random()*6|0)),1800);
+
+/* --- kartalar ketma-ket paydo bo'lishi, hero suzuvchi belgilar --- */
+const _rg=renderGrid;window.renderGrid=function(){_rg();document.querySelectorAll('.game').forEach((e,i)=>e.style.setProperty('--n',i))};
+['♞','♛','●','◆','♟︎','⚃'].forEach((s,i)=>{const e=document.createElement('span');e.className='fl';e.textContent=s;e.style.cssText=`left:${8+i*16}%;top:${10+(i%3)*28}%;animation-delay:${-i*1.1}s`;document.querySelector('.hero').appendChild(e)});
+
+/* --- xatolarni tuzatish --- */
+const _rw=renderWait;window.renderWait=(h,m)=>{if(cur)_rw(h,m)};            // cur yo'q bo'lsa qulab tushmasin
+const _st=startTable;window.startTable=m=>{document.querySelectorAll('.ov').forEach(o=>o.classList.remove('on'));_st(m)}; // ochiq oynalar stolni yopmasin
+
+/* --- ovoz, vibratsiya, konfetti --- */
+let snd=localStorage.getItem('snd')!=='0',AC,lastFx=0;
+function beep(f,d=.09,ty='sine',w=0){if(!snd)return;try{AC=AC||new(window.AudioContext||webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),T=AC.currentTime+w;o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(.06,T);g.gain.exponentialRampToValueAtTime(.001,T+d);o.connect(g).connect(AC.destination);o.start(T);o.stop(T+d)}catch(e){}}
+const hap=k=>{try{tg&&tg.HapticFeedback&&tg.HapticFeedback.notificationOccurred(k)}catch(e){}};
+function confetti(){const c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;z-index:120;pointer-events:none';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);const x=c.getContext('2d'),cl=['#8b5cf6','#22d3ee','#f472b6','#fbbf24','#34d399'];
+ const p=Array.from({length:110},()=>({x:innerWidth/2,y:innerHeight*.35,vx:(Math.random()-.5)*14,vy:Math.random()*-13-2,s:4+Math.random()*6,r:Math.random()*6,c:cl[Math.random()*5|0]}));let f=0;
+ (function a(){x.clearRect(0,0,c.width,c.height);p.forEach(q=>{q.vy+=.35;q.x+=q.vx;q.y+=q.vy;q.r+=.2;x.fillStyle=q.c;x.save();x.translate(q.x,q.y);x.rotate(q.r);x.fillRect(-q.s/2,-q.s/2,q.s,q.s*.6);x.restore()});++f<130?requestAnimationFrame(a):c.remove()})()}
+const _gm=gmsg;window.gmsg=function(s,c){_gm(s,c);
+ if(Date.now()-lastFx<3000)return;
+ if(c==='win'&&(String(s).startsWith('🏆')||s===t('oppLeft'))){lastFx=Date.now();confetti();[523,659,784,1047].forEach((f,i)=>beep(f,.18,'triangle',i*.12));hap('success')}
+ else if(c==='lose'){lastFx=Date.now();[330,262].forEach((f,i)=>beep(f,.25,'sawtooth',i*.18));hap('error')}};
+$('#gameRoot').addEventListener('click',()=>{beep(520,.05,'triangle');try{tg&&tg.HapticFeedback&&tg.HapticFeedback.impactOccurred('light')}catch(e){}});
+
+/* --- tugmalar: ovoz va reyting --- */
+const hr=$('.hr'),meBtn=$('#meBtn');
+const sb=document.createElement('div');sb.className='chip';sb.textContent=snd?'🔊':'🔇';sb.onclick=()=>{snd=!snd;localStorage.setItem('snd',snd?'1':'0');sb.textContent=snd?'🔊':'🔇';beep(660)};hr.insertBefore(sb,meBtn);
+const lbb=document.createElement('div');lbb.className='chip';lbb.textContent='🏆';lbb.onclick=openLb;hr.insertBefore(lbb,meBtn);
+const ov=document.createElement('div');ov.className='ov';ov.innerHTML='<div class="sheet" id="shLb"></div>';document.body.appendChild(ov);
+ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('on')});
+
+/* --- reyting --- */
+let lbGot=false,lbTimer;
+function openLb(){
+  lbGot=false;ov.classList.add('on');
+  $('#shLb').innerHTML=`<h2>🏆 ${t('lb')}</h2><div class="spin"></div>`;
+  S({t:'lb'});clearTimeout(lbTimer);
+  lbTimer=setTimeout(()=>{if(!lbGot)renderLb(me?[{uid,name:myName,wins:me.wins||0,games:me.games||0}]:[],true)},1500);
+}
+function renderLb(list,local){
+  lbGot=true;clearTimeout(lbTimer);
+  const s=[...list].sort((a,b)=>(b.wins||0)-(a.wins||0)||(a.games||0)-(b.games||0)).slice(0,50);
+  const col=['#fbbf24','#cbd5e1','#d97706'],hh=[110,80,60];
+  const wr=u=>u.games?Math.round(u.wins/u.games*100)+'%':'0%';
+  const pod=[1,0,2].filter(i=>s[i]).map(i=>{const u=s[i];return `<div class="pod"><div class="av">${esc((u.name||'?')[0].toUpperCase())}</div><b>${esc(u.name||'?')}</b><span style="color:var(--mut)">${u.wins||0} 🏆</span><div class="bar" style="height:${hh[i]}px;background:linear-gradient(${col[i]}cc,${col[i]}22);animation-delay:${i*.15}s">${['🥇','🥈','🥉'][i]}</div></div>`}).join('');
+  const rows=s.slice(3).map((u,i)=>`<div class="lr${u.uid===uid?' mine':''}" style="--n:${i}"><div class="rk">${i+4}</div><div class="av">${esc((u.name||'?')[0].toUpperCase())}</div><b>${esc(u.name||'?')}</b><span>${wr(u)} · ${u.wins||0}/${u.games||0}</span></div>`).join('');
+  const mine=s.length&&s.length<=3&&s.some(u=>u.uid===uid)?'':'';
+  $('#shLb').innerHTML=`<h2>🏆 ${t('lb')}</h2>${s.length?`<div class="lbtop">${pod}</div>${rows}`:`<p class="sub">${t('lbEmpty')}</p>`}${local?`<div class="note">${t('lbOff')}</div>`:''}<button class="cta ghost" id="lbX">${t('close')}</button>`;
+  $('#lbX').onclick=()=>ov.classList.remove('on');
+}
+const _h=handle;window.handle=m=>{if(m.t==='lb'){renderLb(m.list||[]);return}_h(m)};
+
+renderStatic();
+});
+</script>
